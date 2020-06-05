@@ -6,6 +6,58 @@
 const Alexa = require('ask-sdk-core');
 const i18n = require('i18next');
 
+function createSSMLAudioOutputHelper(audioUrl){
+    return {
+        "outputSpeech": {
+            "type": "SSML",
+            "ssml": `<speak><audio src='${audioUrl}'/></speak>`
+        }
+    }
+}
+
+// default clip handler
+const PlaySoundHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return request.type === 'LaunchRequest' ||
+    (request.type === 'IntentRequest'
+      && request.intent.name === 'PlaySoundIntent');
+  },
+  handle(handlerInput) {
+    const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+    const audioUrl = process.env.DEFAULT_CLIP_URL;
+    return createSSMLAudioOutputHelper(audioUrl);
+  },
+}
+
+// short clip handler
+const PlayShortSoundHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return (request.type === 'IntentRequest'
+      && request.intent.name === 'PlayShortSoundIntent');
+  },
+  handle(handlerInput) {
+    const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+    const audioUrl = process.env.SHORT_CLIP_URL;
+    return createSSMLAudioOutputHelper(audioUrl);
+  },
+}
+
+// long clip handler
+const PlayLongSoundHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return (request.type === 'IntentRequest'
+      && request.intent.name === 'PlayLongSoundIntent');
+  },
+  handle(handlerInput) {
+    const requestAttributes = handlerInput.attributesManager.getRequestAttributes();
+    const audioUrl = process.env.LONG_CLIP_URL;
+    return createSSMLAudioOutputHelper(audioUrl);
+  },
+}
+
 const HelpHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
@@ -114,6 +166,9 @@ const skillBuilder = Alexa.SkillBuilders.custom();
 
 exports.handler = skillBuilder
   .addRequestHandlers(
+    PlaySoundHandler,
+    PlayShortSoundHandler,
+    PlayLongSoundHandler,
     HelpHandler,
     ExitHandler,
     FallbackHandler,
