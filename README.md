@@ -5,6 +5,14 @@ This is the backend code for Alexa skill: **Slow Claps (Sarcastic Claps)**
 
 (Show your annoyance by asking Alexa to play Sarcastic Slow Claps.)
 
+## Alexa skill-store direct links (country-wise): 
+[Australia](https://www.amazon.com.au/dp/B089RHP4R7)
+, [Canada](https://www.amazon.ca/dp/B089RHP4R7)
+, [India](https://www.amazon.in/dp/B089RHP4R7)
+, [United Kingdom](https://www.amazon.co.uk/dp/B089RHP4R7)
+, [United States](https://www.amazon.com/dp/B089RHP4R7)
+
+
 ## Description
 Did someone just say something so stupid or annoying, you don't have any words to describe it ?
 Well, now you have... Just say the magic words, and this Alexa skill will play loud sarcastic claps on your behalf.
