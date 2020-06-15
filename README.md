@@ -1,7 +1,7 @@
 # Slow Claps
 ![Slow Sarcastic Claps](https://alexa-skills-slow-claps.s3.ap-south-1.amazonaws.com/icon_108_A2Z.png)
 
-This is the backend code for Alexa skill: **Slow Claps (Sarcastic Claps)**
+This is the backend code for Alexa skill: **Slow Claps (Sarcastic Claps)**, hosted on AWS Lambda.
 
 (Show your annoyance by asking Alexa to play Sarcastic Slow Claps.)
 
